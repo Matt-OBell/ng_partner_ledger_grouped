@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="account_partner_ledger_view_group" model="ir.ui.view">
+            <field name="name">Partner Ledger</field>
+            <field name="model">account.partner.ledger.report</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="ng_partner_reports.account_partner_ledger_wiz_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount_currency']" position="after">
+                   <field name="is_grouped"/>
+                </xpath>
+            </field>
+        </record>
+
+		<report auto="False" id="account_3rdparty_ledger" menu="False" model="res.partner" name="account.third_party_ledger_grouped" rml="ng_partner_reports/report/account_partner_ledger.rml" string="Partner Ledger"/>
+        <report auto="False" id="account_3rdparty_ledger_other" menu="False" model="res.partner" name="account.third_party_ledger_other_grouped" rml="ng_partner_reports/report/account_partner_ledger_other.rml" string="Partner Ledger"/>
+
+	</data>
+</openerp>
+
